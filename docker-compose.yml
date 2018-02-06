@@ -1,0 +1,106 @@
+version: '3'
+
+services:
+  spark-master:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-master:1.0.0
+    environment:
+      - raven=raven
+    ports:
+      - "6066:6066"
+      - "7077:7077"   # SPARK_MASTER_PORT
+      - "8080:8080"   # SPARK_MASTER_WEBUI_PORT
+    expose:
+      - "6066"
+      - "7077"
+      - "8080"
+  spark-worker1:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40001:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker2:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40002:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+  spark-worker3:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40003:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker4:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40004:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker5:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40005:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker6:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40006:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+  spark-worker7:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40007:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker8:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40008:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker9:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40009:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+  spark-worker10:
+    image: registry.cn-hangzhou.aliyuncs.com/matt/spark-hadoop-worker:1.0.0
+    ports:
+      - "40010:8081"
+    links:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+
+
+
+
